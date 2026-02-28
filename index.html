@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Console</title>
+    <style>
+        body { font-family: sans-serif; background: #f4f4f4; padding: 20px; }
+        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .status { padding: 10px; margin-top: 10px; border-radius: 4px; }
+        .online { background: #e6fffa; color: #2c7a7b; border: 1px solid #81e6d9; }
+        .offline { background: #fff5f5; color: #c53030; border: 1px solid #feb2b2; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Статус системы</h1>
+        <div id="status-box" class="status">Проверка соединения...</div>
+        <p>Ответ от сервера:</p>
+        <pre id="response-data">Ожидание данных...</pre>
+    </div>
+
+    <script>
+        async function checkBackend() {
+            const statusBox = document.getElementById('status-box');
+            const responseData = document.getElementById('response-data');
+            
+            try {
+                // Стучимся на твой запущенный Python сервер
+                const response = await fetch('http://127.0.0.1:8000/');
+                const data = await response.json();
+                
+                statusBox.innerText = "Система онлайн";
+                statusBox.className = "status online";
+                responseData.innerText = JSON.stringify(data, null, 2);
+            } catch (error) {
+                statusBox.innerText = "Ошибка подключения к серверу";
+                statusBox.className = "status offline";
+                responseData.innerText = "Сервер не запущен или блокирует CORS";
+            }
+        }
+
+        checkBackend();
+    </script>
+</body>
+</html>
