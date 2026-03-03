@@ -1,6 +1,9 @@
 # EcoWatch
 Web application with Python backend and HTML frontend.  Fullstack project: FastAPI backend and simple frontend.  Educational project for monitoring and data display.
+Презентация:https://gamma.app/docs/EcoWatch-Space-AI-wqu7ok1abqzh003
+
 О проекте EcoWatch
+
 EcoWatch — это современная программная экосистема, разработанная для обеспечения прозрачности и доступности экологических данных в режиме реального времени. В мире, где состояние окружающей среды меняется ежесекундно, наличие надежного инструмента для мониторинга становится не просто преимуществом, а необходимостью. Наш проект объединяет в себе мощный серверный бэкенд на базе Python и интуитивно понятный пользовательский интерфейс, создавая мост между сложными данными и конечным пользователем.
 
 Наша миссия
